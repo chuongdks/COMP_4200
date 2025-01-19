@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingTop="20dp"
+        app:layout_constraintBottom_toTopOf="@id/fab_submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Day/Night mode switch -->
+            <Switch
+                android:id="@+id/sw_nightmode"
+                android:layout_width="match_parent"
+                android:layout_height="63dp"
+                android:layout_marginBottom="10dp"
+                android:text="Night Mode" />
+
+            <!-- User picture or app icon -->
+            <ImageView
+                android:id="@+id/icon_picture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:text="STATUS FORM"
+                android:textColor="#3F51B5"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <!-- Name input text -->
+            <EditText
+                android:id="@+id/et_name_text"
+                android:layout_width="match_parent"
+                android:layout_height="57dp"
+                android:hint="Enter Applicant Name"
+                android:inputType="text" />
+
+            <!-- Description input text -->
+            <EditText
+                android:id="@+id/et_desc_text"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:layout_marginTop="10dp"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890\n "
+                android:ems="10"
+                android:hint="Enter Applicant Description"
+                android:inputType="textMultiLine"
+                android:maxLines="5" />
+
+            <!-- Radio button Status title-->
+            <TextView
+                android:id="@+id/tv_status_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Applicant Status"
+                android:textStyle="bold" />
+
+            <!--  Choose the status -->
+            <RadioGroup
+                android:id="@+id/radio_group_status"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <RadioButton
+                    android:id="@+id/radio_dead"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Dead" />
+
+                <RadioButton
+                    android:id="@+id/radio_alive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Alive" />
+
+                <RadioButton
+                    android:id="@+id/radio_mia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MIA" />
+
+                <RadioButton
+                    android:id="@+id/radio_unknown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Unknown" />
+
+            </RadioGroup>
+
+            <!-- Calendar Choose a data-->
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Title Terms and Condition -->
+            <TextView
+                android:id="@+id/tv_term"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Terms and Condition" />
+
+            <!-- Terms and Condition checkbox -->
+            <CheckBox
+                android:id="@+id/checkbox_term"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I agree to the terms and conditions" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:layout_margin="16dp"
+        android:contentDescription="Submit button for the form"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:srcCompat="@android:drawable/ic_menu_send" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
