@@ -61,32 +61,30 @@ public class MainActivity extends AppCompatActivity {
         btn_reset.setOnClickListener(v -> {
             // Toast.makeText(getApplicationContext(), "Value reset to 0", Toast.LENGTH_LONG).show();
 
+            /*https://www.geeksforgeeks.org/how-to-create-an-alert-dialog-box-in-android/*/
             // Create the object of AlertDialog Builder class
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
 
-            // Set the message show for the Alert time
+            // Set the message and title for the box
             builder.setMessage("Do you want to reset ?");
-            // Set Alert Title
             builder.setTitle("Alert !");
+
             // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
             builder.setCancelable(false);
 
-            // Set the positive button with yes name Lambda OnClickListener method is use of DialogInterface interface.
+            // Set the positive button
             builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
-                // When the user click yes, reset button will do its stuff
                 counter = 0;
                 tv_count.setText(String.valueOf(counter));
                 btn_reset.setVisibility(View.INVISIBLE);
             });
             // Set the Negative button with No name Lambda OnClickListener method is use of DialogInterface interface.
             builder.setNegativeButton("No", (DialogInterface.OnClickListener) (dialog, which) -> {
-                // If user click no then dialog box is canceled.
                 dialog.cancel();
             });
 
-            // Create the Alert dialog
+            // Create and Show the Alert dialog
             AlertDialog alertDialog = builder.create();
-            // Show the Alert Dialog box
             alertDialog.show();
         });
 

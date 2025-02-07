@@ -1,7 +1,9 @@
 package com.example.counterapp;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CalendarView;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -102,7 +105,25 @@ public class MainActivity2 extends AppCompatActivity {
                 Toast.makeText(MainActivity2.this, "Form submitted for applicant " + applicantName, Toast.LENGTH_SHORT).show();
             }
             else {
-                Toast.makeText(MainActivity2.this, "Please agree to the Terms and Condition checkbox before continue", Toast.LENGTH_LONG).show();
+                // Toast.makeText(MainActivity2.this, "Please agree to the Terms and Condition checkbox before continue", Toast.LENGTH_LONG).show();
+                // Create the object of AlertDialog Builder class
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity2.this);
+
+                // Set the message and title for the box
+                builder.setMessage("Please agree to the Terms and Condition");
+                builder.setTitle("Alert !");
+
+                // Set Cancelable false for when the user clicks on the outside the Dialog Box then it will remain show
+                builder.setCancelable(false);
+
+                // Set the positive button
+                builder.setPositiveButton("OK", (DialogInterface.OnClickListener) (dialog, which) -> {
+                    dialog.cancel();
+                });
+
+                // Create and Show the Alert dialog
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         });
     }
