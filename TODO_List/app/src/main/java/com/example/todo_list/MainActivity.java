@@ -186,7 +186,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Check if taskMsg is null, or else crash program
         if (taskMsg != null) {
-            if (taskPosition != -1) { // Add task if position is the default value (-1)
+            // Add task if position is the default value (-1). Update task if position is a number
+            if (taskPosition != -1) {
                 arrayList.set(taskPosition, taskMsg);
             }
             else {
