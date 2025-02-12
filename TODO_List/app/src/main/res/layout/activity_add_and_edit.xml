@@ -15,14 +15,12 @@
         android:textAlignment="center"
         android:textSize="60sp"
         android:textStyle="bold"
-
         app:layout_constraintBottom_toTopOf="@+id/et_edit_task"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.491" />
-
     <EditText
         android:id="@+id/et_edit_task"
         android:layout_width="390dp"
@@ -35,7 +33,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent" />
-
     <Button
         android:id="@+id/btn_add_task"
         android:layout_width="match_parent"

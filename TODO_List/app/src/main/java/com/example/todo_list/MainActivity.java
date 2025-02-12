@@ -101,7 +101,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-//        // This section is for edit Task on the same Activity
+        // This section is for edit Task on the same Activity (Copy code from line 136 down below)
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Using getSharedPreference method to transfer data from second activity to main (https://developer.android.com/reference/android/content/Context#getSharedPreferences(java.lang.String,%20int))
+        // Or use startActivityForResult() (https://stackoverflow.com/questions/14292398/how-to-pass-data-from-2nd-activity-to-1st-activity-when-pressed-back-android)
+        sp = getSharedPreferences("TASK_ADDER", MODE_PRIVATE);
+        spe = sp.edit();
+        String taskMsg = sp.getString("taskKey", null);
+        int taskPosition = sp.getInt("taskPosition", -1);
+
+        // Check if taskMsg is null, or else crash program
+        if (taskMsg != null) {
+            // Add task if position is the default value (-1). Update task if position is a number
+            if (taskPosition != -1) { 
+                arrayList.set(taskPosition, taskMsg);
+            }
+            else {
+                arrayList.add(taskMsg);
+            }
+
+            // arrayAdapter notify the changes
+            arrayAdapter.notifyDataSetChanged();
+            spe.remove("taskKey");
+            spe.commit();
+        }
+    }
+}
+
 //        // add based on edit Text
 //        btn_add_task.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -171,33 +202,3 @@ public class MainActivity extends AppCompatActivity {
 //                return true; // return True so that it doesn't affect setOnItemClickListener of listView
 //            }
 //        });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        // Using getSharedPreference method to transfer data from second activity to main (https://developer.android.com/reference/android/content/Context#getSharedPreferences(java.lang.String,%20int))
-        // Or use startActivityForResult() (https://stackoverflow.com/questions/14292398/how-to-pass-data-from-2nd-activity-to-1st-activity-when-pressed-back-android)
-        sp = getSharedPreferences("TASK_ADDER", MODE_PRIVATE);
-        spe = sp.edit();
-        String taskMsg = sp.getString("taskKey", null);
-        int taskPosition = sp.getInt("taskPosition", -1);
-
-        // Check if taskMsg is null, or else crash program
-        if (taskMsg != null) {
-            // Add task if position is the default value (-1). Update task if position is a number
-            if (taskPosition != -1) {
-                arrayList.set(taskPosition, taskMsg);
-            }
-            else {
-                arrayList.add(taskMsg);
-            }
-
-            // arrayAdapter notify the changes
-            arrayAdapter.notifyDataSetChanged();
-            spe.remove("taskKey");
-            spe.commit();
-        }
-    }
-}

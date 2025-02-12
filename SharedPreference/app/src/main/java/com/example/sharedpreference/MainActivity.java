@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         sp = getPreferences(MODE_PRIVATE);
         spe = sp.edit();
 
-        //
+        // spe do the editing
         spe.putString("key_username", et_user_name.getText().toString());
         spe.putString("key_password", et_password.getText().toString());
         spe.putBoolean("key_remember", sw_remember.isChecked());
@@ -89,6 +89,5 @@ public class MainActivity extends AppCompatActivity {
         et_user_name.setText(sp.getString("key_username", null));
         et_password.setText(sp.getString("key_password", null));
         sw_remember.setChecked(sp.getBoolean("key_remember",false));
-
     }
 }
