@@ -1,6 +1,7 @@
 package com.example.fragment;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.activity.EdgeToEdge;
@@ -8,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -23,6 +25,43 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    // Function to change and apply Fragment
+    private void setCurrentFragment(Fragment fragment) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frame, fragment)
+                .commit();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("life_cycle", "onStart in Main Activity - Chuong Pham");
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("life_cycle", "onResume in Main Activity - Chuong Pham");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("life_cycle", "onPause in Main Activity - Chuong Pham");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("life_cycle", "onStop in Main Activity - Chuong Pham");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("life_cycle", "onDestroy in Main Activity - Chuong Pham");
     }
 
     // Apple Fragment Function
@@ -54,5 +93,4 @@ public class MainActivity extends AppCompatActivity {
         ft.addToBackStack(null);
         ft.commit();
     }
-
 }

@@ -39,9 +39,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         // Adding text and image to the Recycler View
-        dataSets.add(new MyDataSet("Card 1", R.drawable.image1));
-        dataSets.add(new MyDataSet("Card 2", R.drawable.image2));
-        dataSets.add(new MyDataSet("Card 3", R.drawable.image3));
+        dataSets.add(new MyDataSet("Card 1", R.drawable.image4, "Red"));
+        dataSets.add(new MyDataSet("Card 2", R.drawable.image5, "Yellow"));
+        dataSets.add(new MyDataSet("Card 3", R.drawable.image6, "Black"));
 
         // Set Adapter for Recycler view
         MyAdapter myAdapter = new MyAdapter(dataSets, MainActivity.this);

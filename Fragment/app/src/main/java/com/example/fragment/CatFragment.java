@@ -56,24 +56,24 @@ public class CatFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        Log.d("life_cycle", "onCreate in Cat Fragment - Chuong Pham");
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_cat, container, false);
+    public void onStart() {
+        super.onStart();
+        Log.d("life_cycle", "onStart in Cat Fragment - Chuong Pham");
     }
 
     @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        Log.d("attachLog", "onAttach log msg -- Cat");
+    public void onStop() {
+        super.onStop();
+        Log.d("life_cycle", "onStop in Cat Fragment - Chuong Pham");
     }
 
     @Override
-    public void onPause() {
-        super.onPause();
-        Log.d("pauseLog", "onPause log msg -- Cat");
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d("life_cycle", "onDestroyView in Cat Fragment - Chuong Pham");
     }
 }

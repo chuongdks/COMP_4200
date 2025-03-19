@@ -56,24 +56,32 @@ public class BirdFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        Log.d("life_cycle", "onCreate in Bird Fragment - Chuong Pham");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.d("life_cycle", "onCreateView in Bird Fragment - Chuong Pham");
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_bird, container, false);
     }
 
     @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        Log.d("attachLog", "onAttach log msg -- BIrd");
+    public void onResume() {
+        super.onResume();
+        Log.d("life_cycle", "onResume in Bird Fragment - Chuong Pham");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d("pauseLog", "onPause log msg -- BIrd");
+        Log.d("life_cycle", "onPause in Bird Fragment - Chuong Pham");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d("life_cycle", "onDestroyView in Bird Fragment - Chuong Pham");
     }
 }
